@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WQI Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4c3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .result-box {
+            flex: 1;
+            padding: 30px;
+            text-align: left;
+        }
+
+        .chart-box {
+            flex: 1;
+            background: #e8f5e9;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            color: #33691e;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #444;
+            margin: 10px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #558b2f;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 6px;
+        }
+
+        a:hover {
+            background: #33691e;
+        }
+
+        .chart-box img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .chart-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-box">
+            <h2>Water Quality Prediction Result</h2>
+            <p><strong>WQI Score:</strong> {{ wqi_score }}</p>
+            <p><strong>Status:</strong> {{ classification }}</p>
+            <a href="/">Try Another Sample</a>
+        </div>
+        <div class="chart-box">
+            <div class="chart-title">WQI Classification Chart</div>
+            <img src="{{ url_for('static', filename='img.png') }}" alt="WQI Classification Chart">
+        </div>
+    </div>
+</body>
+</html>
